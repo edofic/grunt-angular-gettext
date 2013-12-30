@@ -43,6 +43,8 @@ module.exports = (grunt) ->
                     'tmp/test10.pot': 'test/fixtures/ngif.html'
                     'tmp/test12.pot': 'test/fixtures/php.php'
                     'tmp/test13.pot': 'test/fixtures/sort.html'
+                    'tmp/test14.pot': 'test/fixtures/source.scala'
+                    'tmp/test15.pot': 'test/fixtures/template.scala.html'
             manual:
                 files:
                     'tmp/test5.pot': 'test/fixtures/corrupt.html'

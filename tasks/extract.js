@@ -71,6 +71,19 @@ module.exports = function (grunt) {
                     addString(filename, matches[2]);
                 }
             }
+
+            function extractScala(filename) {
+                var pattern = new RegExp(/Messages\((?:"""([\s\S]*)"""|"((?:\\"|[^"])*)")/gm);
+                var src = grunt.file.read(filename);
+                var match;
+                while (match = pattern.exec(src)) {
+                    var txt = match[1] || match[2];
+                    if (txt) {
+                        console.log(filename, txt);
+                        addString(filename, txt);
+                    }
+                }
+            }
             
             function walkJs(node, fn) {
                 fn(node);
@@ -103,6 +116,9 @@ module.exports = function (grunt) {
             file.src.forEach(function (input) {
                 if (input.match(/\.(htm(|l)|php|phtml)$/)) {
                     extractHtml(input);
+                }
+                if (input.match(/\.(scala(|\.html))$/)) {
+                    extractScala(input);
                 }
                 if (input.match(/\.js$/)) {
                     extractJs(input);
