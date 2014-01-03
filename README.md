@@ -10,6 +10,27 @@ Check the website for usage instructions: [http://angular-gettext.rocketeer.be/]
 
 This fork also supports extraction from Scala and PlayFramework2 templates and can compile to Java properties files suitable for Play i18n. Thus supporting internationalization of Angular and Play using same po files.
 
+Example `Gruntfile.coffee`
+
+    module.exports = (grunt) ->
+      
+      # Project configuration.
+      grunt.initConfig
+        pkg: grunt.file.readJSON("package.json")
+        nggettext_extract:
+          pot:
+            files:
+              "po/template.pot": ["app/views/*.html", "app/views/*/*.html", "app/views/*/*/*.html"]
+
+        nggettext_compile:
+          all:
+            files:
+              "public/javascripts/translations.js": ["po/*.po"]
+              "conf/messages.nl": ["po/nl.po"]
+
+      grunt.loadNpmTasks "grunt-angular-gettext"
+
+
 ## License 
 
     (The MIT License)
