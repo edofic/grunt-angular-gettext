@@ -70,7 +70,6 @@ var processProperties = function (grunt, file) {
         body += propertiesEscapeKey(id) + "=" + item.string + "\n";
         body += "\n";
     }
-    console.log(body);
     grunt.file.write(file.dest, body);    
 };
 
