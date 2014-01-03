@@ -1,12 +1,14 @@
-# grunt-angular-gettext
+# grunt-angular-play-gettext
 
 > Tasks for extracting/compiling angular-gettext strings.
 
 Used in combination with [`angular-gettext`](https://github.com/rubenv/angular-gettext).
 
-[![Build Status](https://travis-ci.org/rubenv/grunt-angular-gettext.png?branch=master)](https://travis-ci.org/rubenv/grunt-angular-gettext)
+[![Build Status](https://travis-ci.org/edofic/grunt-angular-play-gettext.png?branch=master)](https://travis-ci.org/edofic/grunt-angular-play-gettext)
 
 Check the website for usage instructions: [http://angular-gettext.rocketeer.be/](http://angular-gettext.rocketeer.be/).
+
+This fork also supports extraction from Scala and PlayFramework2 templates and can compile to Java properties files suitable for Play i18n. Thus supporting internationalization of Angular and Play using same po files.
 
 ## License 
 

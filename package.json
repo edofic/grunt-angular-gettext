@@ -1,19 +1,15 @@
 {
-  "name": "grunt-angular-gettext",
+  "name": "grunt-angular-play-gettext",
   "description": "Tasks for extracting/compiling angular-gettext strings.",
   "version": "0.2.3",
   "homepage": "http://angular-gettext.rocketeer.be/",
   "author": {
-    "name": "Ruben Vermeersch",
-    "email": "ruben@savanne.be",
-    "url": "http://savanne.be"
+    "name": "Andraz Bajth",
+    "email": "edofic.gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/rubenv/grunt-angular-gettext.git"
-  },
-  "bugs": {
-    "url": "https://github.com/rubenv/grunt-angular-gettext/issues"
+    "url": "git://github.com/edofic/grunt-angular-play-gettext.git"
   },
   "licenses": [
     {
