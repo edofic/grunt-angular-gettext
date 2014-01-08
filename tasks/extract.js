@@ -16,7 +16,8 @@ module.exports = function (grunt) {
             startDelim: '{{',
             endDelim: '}}'
         });
-        var attrRegex = mkAttrRegex(options.startDelim, options.endDelim);
+        var attrRegex = mkAttrRegex(options.startDelim, options.endDelim); 
+        var scala_gettext = this.data.scala_gettext || "Messages";
 
         this.files.forEach(function (file) {
             var failed = false;
@@ -73,13 +74,12 @@ module.exports = function (grunt) {
             }
 
             function extractScala(filename) {
-                var pattern = new RegExp(/Messages\((?:"""([\s\S]*)"""|"((?:\\"|[^"])*)")/gm);
+                var pattern = new RegExp(scala_gettext + '\\((?:"""([\\s\\S]*)"""|"((?:\\\\"|[^"])*)")', 'gm');
                 var src = grunt.file.read(filename);
                 var match;
                 while (match = pattern.exec(src)) {
                     var txt = match[1] || match[2];
                     if (txt) {
-                        console.log(filename, txt);
                         addString(filename, txt);
                     }
                 }
