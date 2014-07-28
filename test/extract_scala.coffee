@@ -11,7 +11,7 @@ describe 'Extract: Scala', ->
             assert.equal(err, null)
             items = catalog.items
             assert.equal items.length, 1
-            assert.equal items[0].msgid, "msg"
+            assert.equal items[0].msgid, "msg with some quotes \\\""
             done()
 
     it "Extracts strings from Scala Play templates", (done) ->
@@ -22,5 +22,5 @@ describe 'Extract: Scala', ->
             assert.equal(err, null)
             items = catalog.items
             assert.equal items.length, 1
-            assert.equal items[0].msgid, "Hello world"
+            assert.equal items[0].msgid, "Hello \\\"world\\\""
             done()

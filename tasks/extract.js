@@ -24,12 +24,6 @@ module.exports = function (grunt) {
             var catalog = new po();
             var strings = {};
 
-            var escape = function (str) {
-                str = str.replace(/\\/g, '\\\\');
-                str = str.replace(/"/g, '\\"');
-                return str;
-            };
-
             function addString(file, string, plural) {
                 string = string.trim();
 
@@ -38,7 +32,7 @@ module.exports = function (grunt) {
                 }
 
                 var item = strings[string];
-                item.msgid = escape(string);
+                item.msgid = string;
                 if (item.references.indexOf(file) < 0) {
                     item.references.push(file);
                 }
@@ -47,7 +41,7 @@ module.exports = function (grunt) {
                         grunt.log.error("Incompatible plural definitions for " + string + ": " + item.msgid_plural + " / " + plural + " (in: " + (item.references.join(", ")) + ")");
                         failed = true;
                     }
-                    item.msgid_plural = escape(plural);
+                    item.msgid_plural = plural;
                     item.msgstr = ["", ""];
                 }
             }
