@@ -105,11 +105,19 @@ describe 'Extract', ->
 
         po.load 'tmp/test7.pot', (err, catalog) ->
             assert.equal(err, null)
-            assert.equal(catalog.items.length, 1)
+            assert.equal(catalog.items.length, 3)
             assert.equal(catalog.items[0].msgid, 'Hello')
             assert.equal(catalog.items[0].msgstr, '')
             assert.equal(catalog.items[0].references.length, 1)
             assert.equal(catalog.items[0].references[0], 'test/fixtures/source.js')
+            assert.equal(catalog.items[1].msgid, 'Universe')
+            assert.equal(catalog.items[1].msgstr, '')
+            assert.equal(catalog.items[1].references.length, 1)
+            assert.equal(catalog.items[1].references[0], 'test/fixtures/source.js')
+            assert.equal(catalog.items[2].msgid, 'World')
+            assert.equal(catalog.items[2].msgstr, '')
+            assert.equal(catalog.items[2].references.length, 1)
+            assert.equal(catalog.items[2].references[0], 'test/fixtures/source.js')
             done()
 
     it 'Extracts strings with quotes', (done) ->
