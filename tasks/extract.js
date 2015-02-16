@@ -97,8 +97,35 @@ module.exports = function (grunt) {
                     tolerant: true
                 });
 
+                function isCall(node) {
+                    return node.type === 'CallExpression' &&
+                        node.callee != null;
+                }
+
+                function isCalleeIdentifier(callee, name) {
+                    return callee.type === 'Identifier' &&
+                        callee.name === name;
+                }
+
+                function isCalleeMember(callee, name) {
+                    return callee.type === 'MemberExpression' &&
+                        callee.property.type === 'Identifier' &&
+                        callee.property.name === 'gettext';
+                }
+
                 walkJs(syntax, function (node) {
-                    if (node !== null && node.type === 'CallExpression' && node.callee !== null && node.callee.name === 'gettext') {
+                    if (
+                        node !== null &&
+                        isCall(node) &&
+                        (
+                            isCalleeIdentifier(node.callee, 'gettext') ||
+                            isCalleeMember(node.callee, 'gettext') ||
+                            (
+                                isCall(node.callee) &&
+                                isCalleeMember(node.callee.callee, 'gettext')
+                            )
+                        )
+                    ) {
                         var str = node['arguments'][0] ? node['arguments'][0].value : null;
                         if (str) {
                             addString(filename, str);
