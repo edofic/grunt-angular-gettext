@@ -28,7 +28,7 @@ Example `Gruntfile.coffee`
               "public/javascripts/translations.js": ["po/*.po"]
               "conf/messages.nl": ["po/nl.po"]
 
-      grunt.loadNpmTasks "grunt-angular-gettext"
+      grunt.loadNpmTasks "grunt-angular-play-gettext"
 
 
 ## License 
